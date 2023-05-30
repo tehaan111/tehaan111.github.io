@@ -1,0 +1,98 @@
+*{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mainNav {
+    display: flex;
+    background-color: #007bff;
+    color: white;
+    justify-content: space-between;
+    padding: 0 15%;
+    height: 75px;
+    line-height: 75px;
+}
+.mainNav ul{
+    display: flex;
+}
+.mainNav ul li{
+    cursor: pointer;
+    height: 100%;
+    padding: 0 15px;
+    transition: 0.4s;
+}
+.mainNav ul li:hover{
+    background: #3195ff;
+}
+.mainNav ul li a{
+    color: #fff;
+    font-weight: 500;
+}
+@media (max-width: 768px){
+    .mainNav {
+        padding: 0 2rem;
+    }
+    .mainNav ul li {
+        padding: 0 20px;
+    }
+}
+@media (max-width: 675px){
+    .mainNav ul {
+        display: grid;
+        position: absolute;
+        background:rgb(0, 162, 255,0.8);
+        width:100%;
+        top: 75px;
+        left: 0;
+        transform: translateY(-100%);
+        z-index: -1;
+        transition: 0.6s;
+    }
+
+    .mainNav ul li {
+        padding-left: 45px;
+    }
+    .mainNav .navBar-toggle{
+        display: grid !important;
+    }
+}
+
+.mainNav .navBar-toggle{
+    display: none;
+    height: min-content;
+    margin: 18px -10px 0 0;
+    cursor: pointer;
+}
+.mainNav .navBar-toggle .bar{
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: white;
+    transition: .4s;
+}
+
+input#toggle{
+    display: none;
+}
+input:checked ~ .mainNav ul{
+    transform: translateY(0);
+}
+input:checked ~ .mainNav .navBar-toggle{
+    margin: 35px;
+}
+input:checked ~ .mainNav .navBar-toggle .bar:nth-child(1){
+    position: absolute;
+    transform: rotate(45deg);
+}
+input:checked ~ .mainNav .navBar-toggle .bar:nth-child(2){
+    display: none;
+}
+input:checked ~ .mainNav .navBar-toggle .bar:nth-child(3){
+    position: absolute;
+    transform: rotate(-45deg);
+}
